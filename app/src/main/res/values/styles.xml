@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 溢出菜单图标颜色，可以自己设置成任意的颜色-->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="ThemeDialog" parent="android:Theme.Material.Light.Dialog" type="text/css">
+        <item name="android:colorAccent">#66CCFF</item>
+        <item name="android:colorPrimary">#2A5CAA</item>
+        <item name="android:colorPrimaryDark">#F58220</item>
+    </style>
+
+</resources>

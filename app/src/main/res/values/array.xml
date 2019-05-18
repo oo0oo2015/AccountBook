@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activity_add_type_spinner_values">
+        <item>支出</item>
+        <item>收入</item>
+    </string-array>
+
+    <string-array name="activity_add_category_expend_spinner_values">
+        <item>交通</item>
+        <item>购物</item>
+        <item>餐费</item>
+    </string-array>
+
+    <string-array name="activity_add_category_income_spinner_values">
+        <item>奖金</item>
+        <item>工资</item>
+    </string-array>
+</resources>
