@@ -32,7 +32,7 @@ public class AddActivity extends AppCompatActivity {
 
     private EditText editTextDate;
 
-    private Record record;
+    private Record record = new Record();
     private Spinner spinnerType;
     private Spinner spinnerCategory;
     private EditText editTextAmount;
@@ -46,10 +46,6 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        if (record == null) {
-            record = new Record();
-        }
-
         Toolbar toolbar = findViewById(R.id.toolbar_add);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -62,7 +58,7 @@ public class AddActivity extends AppCompatActivity {
         editTextNote = findViewById(R.id.edit_text_note);
 
         // 绑定适配器和事件监听器
-        // TODO: 显示指定，之后要做到从数据库中取
+        // TODO: 显式指定，之后要做到从数据库中取
         expendCategoryList = new ArrayList<String>() {{
             add("交通");
             add("购物");
@@ -103,6 +99,7 @@ public class AddActivity extends AppCompatActivity {
                 if (Objects.equals("添加新分类...", selectedCategory)) {
                     Intent intent = new Intent(AddActivity.this, SetCategoryActivity.class);
                     startActivity(intent);
+                    spinnerCategory.setSelection(0);
                     // 当设置分类页面关闭后
                     //TODO: 重新加载“分类” List（expendCategoryList 和 incomeCategoryList）
                     //首先肯定要把“分类”信息持久化啊
@@ -236,9 +233,9 @@ public class AddActivity extends AppCompatActivity {
     private void bindSpinnerCategoryData(boolean isExpend) {
         ArrayAdapter<String> arrayAdapter;
         List<String> targetList = isExpend ? expendCategoryList : incomeCategoryList;
-        List<String> list = new ArrayList<String>(targetList);
+        List<String> list = new ArrayList<>(targetList);
         list.add("添加新分类...");
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // 为 spinnerCategory 绑定新的数据适配器
         spinnerCategory.setAdapter(arrayAdapter);
